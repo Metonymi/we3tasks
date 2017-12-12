@@ -17,10 +17,13 @@ class Benchmark(object):
 
     Those folders can be created by running the *_assembly.py scripts.
     '''
-    def __init__(self, data_folder, feature_file):
+    def __init__(self, data_folder, feature_file, label_folders=False):
         self.data_folder = data_folder
         self.features = torchfile.load(feature_file)
-        self.label_folders = os.listdir(data_folder)
+        if label_folders:
+            self.label_folders = label_folders
+        else:
+            self.label_folders = os.listdir(data_folder)
 
         self.corpus = {
             label_folder: {
@@ -44,13 +47,12 @@ class Benchmark(object):
         return True
 
     def add_representations(self, folder):
-        folder = folder.encode()
         for text_file in list(self.corpus[folder]['text_files'].keys()):
-            text_file = text_file.encode()
-            if text_file in list(self.features[folder].keys()):
+            if text_file.encode() in list(self.features[folder.encode()].keys()):
                 self.corpus[folder]['representations'][text_file] = \
-                np.hstack((self.corpus[folder]['representations'][text_file],
-                           self.features[folder][text_file].reshape((1, 2048))))
+                np.hstack((self.corpus[folder]['representations'][text_file.encode()],
+                           self.features[folder.encode()][text_file.encode()] \
+                           .reshape((1, 2048))))
         return True
 
     def flatten(self):
@@ -108,10 +110,10 @@ work.flatten()
 work.train_model('logistic_regression')
 work.evaluate_model()
 '''
-benchmarking_work = Benchmark('20newsgroup/', '20newsgroup_data_features10')
+benchmarking_work = Benchmark('aclImdb', 'imdb_data_features12', ['train/pos', 'train/neg'])
 benchmarking_work.flatten()
-benchmarking_work.train_model()
-benchmarking_work.evaluate_model()
+#benchmarking_work.train_model()
+#benchmarking_work.evaluate_model()
 '''
 work = Benchmark('aclImdb/', 'imdb_data_features10')
 work.vectorize()
