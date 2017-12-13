@@ -21,12 +21,12 @@ def categorize_20newsgroup(base_dir):
         os.mkdir(base_dir)
 
     for cat in range(20):
-        if not os.path.exists('{}/{}'.format(base_dir, str(cat))):
-            os.mkdir('{}/{}'.format(base_dir, str(cat)))
+        if not os.path.exists('{}/{}'.format(base_dir, 'c'+ str(cat))):
+            os.mkdir('{}/{}'.format(base_dir, 'c' + str(cat)))
 
     for index in range(len(corpus.data)):
         new = '{}/{}/{}'.format(base_dir,
-                                str(list(corpus.target)[index]),
+                                'c' + str(list(corpus.target)[index]),
                                 str(index) + '.txt')
 
         with open(new, 'wb') as new_file:
