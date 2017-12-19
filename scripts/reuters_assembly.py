@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-__author__ = 'Thomas Stearns'
-
 '''
 
 Like the 20 newsgroup script, this manipulates the Reuters
@@ -11,7 +9,7 @@ Unlike 20NG, this dataset will be purposefully imbalanced.
 
 '''
 
-import os
+import util as util
 from nltk.corpus import reuters
 
 def categorize_reuters():
@@ -36,15 +34,12 @@ def write_data(base_dir, categories):
     Writes the text data in according to the
     above defined category document structure.
     '''
-    if not os.path.exists(base_dir):
-        os.mkdir(base_dir)
+    util.make_dir(base_dir)
     for cat in categories:
-        if not os.path.exists('{}/{}'.format(base_dir, cat)):
-            os.mkdir(base_dir + '/' + cat)
+        util.make_dir(base_dir + '/' + cat)
         for doc in categories[cat]:
             new = '{}/{}/{}'.format(base_dir, cat, doc + '.txt')
-            with open(new, 'wb') as new_file:
-                new_file.write(categories[cat][doc].encode())
+            util.write_file(new, categories[cat][doc].encode())
 
     return True
 

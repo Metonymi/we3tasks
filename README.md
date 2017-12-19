@@ -28,7 +28,7 @@ source metonymi/bin/activate
 
  # Data Assembly
 
- To see how the datasets are employed, run
+ To see how the datasets are employed, examine and run
 
  ``` bash
  python scripts/20newsgroup_assembly.py
@@ -74,13 +74,17 @@ python benchmark.py
 ```
 
 This script assembles the representations and the raw text data into a single object, and then trains a GLM with sklearn
-to perform the classification tasks using the Metonymi features.
+to perform the classification tasks using the Metonymi features. Some vital statistics for a test set are also returned.
 
 # Discussion
 
-As you can see when you run benchmarl.py, the classification rates for these tasks are as follows:
+As you can see, Metonymi's representations have dimension 2048, which is very small for NLP applications. We recommended adding
+your own hand-crafted features to Metonymi's for the best possible model (make sure to increase the training iterations of whatever
+algorithm you chose to accommodate the increased dimensionality if you use your own features).
 
+We think the best way to use this repo is as a proof of concept: these tasks can be performed successfully using classic TF-IDF
+features, but those features are going to let you down if the task is more complicated than these are. That's where Metonymi's
+features are going to help you the most. We're not looking at simple statistics about word use; we're creating a distributed
+representation for each document that captures its complex semantic properties and puts individual words in a greater context.
 
-Remember, these are fairly simple tasks: tf-idf or bag of words features probably outperform our features for these tasks.
-However, elementary methods such as tf-idf are going to fail on more complex semantic tasks and our features can always supplement
-them. The point is that Metonymi's representations work on a variety of tasks at once.
+  
