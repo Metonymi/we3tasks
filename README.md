@@ -16,7 +16,17 @@ We recommend using a virtual environment. Clone the repo and create a virtual en
 ``` bash
 git clone https://github.com/Metonymi/we3tasks.git
 virtualenv metonymi
+
+Activate environment with
+
+``` bash
 source metonymi/bin/activate
+```
+
+or in Windows:
+
+``` bash
+Scripts\activate
 ```
 
  and then install the requirements:
@@ -42,7 +52,7 @@ source metonymi/bin/activate
 
  # Metonymi features
 
-Download and extract the Metonymi representations for the datasets [here](https://s3-us-west-2.amazonaws.com/metonymipublic/we3tasks_features12.tar.gz)
+Download and extract the Metonymi representations for the datasets [here](https://s3-us-west-2.amazonaws.com/metonymipublic/we3tasks_features12.tar.gz) inside the we3tasks repo.
 
 These files are torch files and can be inspected in python as follows:
 
