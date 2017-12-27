@@ -4,10 +4,10 @@ we3tasks is a simple way to evaluate Metonymi's representations for yourself. We
 for 3 different document corpuses and we3tasks builds a simple classifier on top of the representations
 for each document corpus.
 
-# The Tasks
+# The tasks
 
 The datasets we'll examine are 20newsgroups (document classification), Reuters (document classification), and the
-Large Movie Review Dataset (sentiment analysis). Metonymi's technology has never been trained on or examined any of these datasets, but the representations it creates for the documents have predictive power for each of the tasks.
+[Large Movie Review Dataset](http://ai.stanford.edu/~amaas/data/sentiment/) (sentiment analysis). Metonymi's technology has never been trained on or examined any of these datasets, but the representations it creates for the documents have predictive power for each of the tasks.
 
 # Setup
 
@@ -26,27 +26,24 @@ source metonymi/bin/activate
 
  If you don't want to use virtualenv, just run the pip command.
 
- # Data Assembly
+ # Data assembly
 
  To see how the datasets are employed, examine and run
 
  ``` bash
- python scripts/20newsgroup_assembly.py
- python scripts/reuters_assembly.py
- python scripts/aclImdb_assembly.py
+ python 20newsgroup_assembly.py
+ python reuters_assembly.py
+ python aclimdb_assembly.py
  ```
 
  which produce separate folders in we3tasks for each of the tasks. These scripts download the datasets and then
- lightly clean them. The Reuters dataset has documents that can belong in overlapping categories. For the classification
- task, we only use those documents assigned to a single category.
+ lightly clean them. The Reuters dataset has documents that can belong in overlapping categories, so for the Reuters
+ task, we only use those documents assigned to a single category. This has the interesting side effect of creating a highly
+ imbalanced dataset for testing.
 
  # Metonymi features
 
-Download the Metonymi representations for each dataset from the following links
-
-[20newsgroups](https://github.com/imodpasteur/lutorpy/issues/38)
-[Reuters](https://github.com/imodpasteur/lutorpy/issues/38)
-[aclImdb](https://github.com/imodpasteur/lutorpy/issues/38)\
+Download and extract the Metonymi representations for the datasets [here](https://s3-us-west-2.amazonaws.com/metonymipublic/we3tasks_features12.tar.gz)
 
 These files are torch files and can be inspected in python as follows:
 
@@ -79,12 +76,10 @@ to perform the classification tasks using the Metonymi features. Some vital stat
 # Discussion
 
 As you can see, Metonymi's representations have dimension 2048, which is very small for NLP applications. We recommended adding
-your own hand-crafted features to Metonymi's for the best possible model (make sure to increase the training iterations of whatever
+your own features to Metonymi's for the best possible model (make sure to increase the training iterations of whatever
 algorithm you chose to accommodate the increased dimensionality if you use your own features).
 
 We think the best way to use this repo is as a proof of concept: these tasks can be performed successfully using classic TF-IDF
 features, but those features are going to let you down if the task is more complicated than these are. That's where Metonymi's
 features are going to help you the most. We're not looking at simple statistics about word use; we're creating a distributed
 representation for each document that captures its complex semantic properties and puts individual words in a greater context.
-
-  

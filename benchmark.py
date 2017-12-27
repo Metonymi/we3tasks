@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-__author__ = 'Thomas Stearns'
-
 import os
 import warnings
 import torchfile
