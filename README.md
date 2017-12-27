@@ -11,9 +11,10 @@ The datasets we'll examine are 20newsgroups (document classification), Reuters (
 
 # Setup
 
-We recommend using a virtual environment. Inside the we3tasks repo run
+We recommend using a virtual environment. Clone the repo and create a virtual environment inside it:
 
 ``` bash
+git clone https://github.com/Metonymi/we3tasks.git
 virtualenv metonymi
 source metonymi/bin/activate
 ```
@@ -73,11 +74,9 @@ to perform the classification tasks using the Metonymi features. Some vital stat
 
 # Discussion
 
-As you can see, Metonymi's representations have dimension 2048, which is very small for NLP applications. We recommended adding
+As you can see, Metonymi's representations have dimension 2048, which is small for NLP applications. We recommended adding
 your own features to Metonymi's for the best possible model (make sure to increase the training iterations of whatever
 algorithm you chose to accommodate the increased dimensionality if you use your own features).
 
 We think the best way to use this repo is as a proof of concept: these tasks can be performed successfully using classic TF-IDF
-features, but those features are going to let you down if the task is more complicated than these are. That's where Metonymi's
-features are going to help you the most. We're not looking at simple statistics about word use; we're creating a distributed
-representation for each document that captures its complex semantic properties and puts individual words in a greater context.
+features, but those features are going to let you down if the task is [more complicated](https://github.com/niderhoff/nlp-datasets) than these are. That's where Metonymi's features are going to help you the most. We're not looking at simple statistics about word use; we're creating a distributed representation for each document that captures its complex semantic properties and puts individual words in a greater context.
