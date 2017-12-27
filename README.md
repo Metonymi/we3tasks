@@ -31,9 +31,7 @@ source metonymi/bin/activate
  To see how the datasets are employed, examine and run
 
  ``` bash
- python 20newsgroup_assembly.py
- python reuters_assembly.py
- python aclimdb_assembly.py
+ python main_assembly.py
  ```
 
  which produce separate folders in we3tasks for each of the tasks. These scripts download the datasets and then
