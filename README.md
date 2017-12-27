@@ -16,6 +16,7 @@ We recommend using a virtual environment. Clone the repo and create a virtual en
 ``` bash
 git clone https://github.com/Metonymi/we3tasks.git
 virtualenv metonymi
+```
 
 Activate environment with
 
@@ -23,7 +24,7 @@ Activate environment with
 source metonymi/bin/activate
 ```
 
-or Windows:
+or in Windows:
 
 ``` bash
 Scripts\activate
