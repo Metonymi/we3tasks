@@ -21,12 +21,13 @@ Activate environment with
 
 ``` bash
 source metonymi/bin/activate
+```
 
 or Windows:
 
 ``` bash
 Scripts\activate
-
+```
 
  and then install the requirements:
 
