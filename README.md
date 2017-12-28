@@ -36,7 +36,7 @@ Scripts\activate
  pip install -r requirements.txt
  ```
 
- If you don't want to use virtualenv, just run the pip command.
+ If you don't want to use virtualenv, just run the pip command. Ignore any errors about the sklearn install. There's a [bug](https://github.com/scikit-learn/scikit-learn/issues/4164) that throws a vague error about the install failing with numpy, but it should be fine. 
 
  # Data assembly
 

@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split as tts
 from sklearn import metrics
 import numpy as np
 
-warnings.simplefilter("ignore")
+warnings.simplefilter('ignore')
 
 class Benchmark(object):
     '''
@@ -17,7 +17,7 @@ class Benchmark(object):
     exist in subfolders of the data_folder argument, each
     of which corresponds to a single class label.
 
-    Those folders can be created by running the *_assembly.py scripts.
+    Those folders can be created by running the main_assembly.py script.
     '''
     def __init__(self, data_folder, feature_file, label_folders=False):
         self.data_folder = data_folder
@@ -136,7 +136,12 @@ class Benchmark(object):
 
         return True
 
+def main():
+    Benchmark('aclImdb', 'we3tasks_features12/imdb_data_features12', ['train/pos', 'train/neg'])
+    Benchmark('20newsgroup', 'we3tasks_features12/20newsgroup_data_features12')
+    Benchmark('reuters', 'we3tasks_features12/reuters_data_features12')
+
+    return True
 
 if __name__ == '__main__':
-    Benchmark('aclImdb', 'imdb_data_features12', ['train/pos', 'train/neg'])
-    Benchmark('20newsgroup', '20newsgroup_data_features12')
+    main()

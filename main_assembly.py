@@ -6,12 +6,15 @@ Import and run assembly scripts for all three datasets.
 '''
 
 import os
+import nltk
 from src import newsgroup_assembly as nga
 from src import aclimdb_assembly as imdba
 from src import reuters_assembly as ra
 from src import util as util
 
 def main():
+    # gets reuters from nltk
+    nltk.download('reuters')
     categories = ra.categorize_reuters()
     ra.write_data('reuters', categories)
 
