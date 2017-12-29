@@ -137,9 +137,9 @@ class Benchmark(object):
         return True
 
 def main():
-    Benchmark('aclImdb', 'we3tasks_features12/imdb_data_features12', ['train/pos', 'train/neg'])
-    Benchmark('20newsgroup', 'we3tasks_features12/20newsgroup_data_features12')
-    Benchmark('reuters', 'we3tasks_features12/reuters_data_features12')
+    Benchmark('aclImdb', 'we3tasks_features/imdb_data_features', ['train/pos', 'train/neg'])
+    Benchmark('20newsgroup', 'we3tasks_features/20newsgroup_data_features')
+    Benchmark('reuters', 'we3tasks_features/reuters_data_features')
 
     return True
 

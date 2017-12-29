@@ -36,7 +36,7 @@ Scripts\activate
  pip install -r requirements.txt
  ```
 
- If you don't want to use virtualenv, just run the pip command. Ignore any errors about the sklearn install. There's a [bug](https://github.com/scikit-learn/scikit-learn/issues/4164) that throws a vague error about the install failing with numpy, but it should be fine. 
+ If you don't want to use virtualenv, just run the pip command. Ignore any errors about the sklearn install. There's a [bug](https://github.com/scikit-learn/scikit-learn/issues/4164) that throws a vague error about the install failing with numpy, but it should be fine.
 
  # Data assembly
 
@@ -53,7 +53,7 @@ Scripts\activate
 
  # Metonymi features
 
-Download and extract the Metonymi representations for the datasets [here](https://s3-us-west-2.amazonaws.com/metonymipublic/we3tasks_features12.tar.gz) inside the we3tasks repo.
+Download and extract the Metonymi representations for the datasets [here](https://s3-us-west-2.amazonaws.com/metonymipublic/we3tasks_features.tar.gz) inside the we3tasks repo.
 
 These files are torch files and can be inspected in python as follows:
 
